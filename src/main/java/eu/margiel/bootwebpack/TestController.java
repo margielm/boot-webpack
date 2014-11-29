@@ -1,4 +1,4 @@
-package pl.confitura.jelatyna;
+package eu.margiel.bootwebpack;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

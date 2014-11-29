@@ -1,0 +1,26 @@
+{
+  "name": "jelatyna-gui",
+  "description": "GUI for jelatyna",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-angular-templatecache": "^1.4.2",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.4.2",
+    "gulp-inject": "^1.0.2",
+    "gulp-jshint": "^1.9.0",
+    "gulp-karma": "0.0.4",
+    "gulp-load-plugins": "^0.7.1",
+    "gulp-notify": "^2.0.1",
+    "gulp-util": "^3.0.1",
+    "gulp-webpack": "^1.1.0",
+    "ng-cache-loader": "0.0.7",
+    "path": "^0.4.9",
+    "karma": "^0.12.28",
+    "karma-jasmine": "^0.3.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-webpack": "^1.3.1",
+    "webpack": "^1.4.13",
+    "webpack-dev-middleware": "^1.0.11",
+    "webpack-dev-server": "^1.6.6"
+  }
+}

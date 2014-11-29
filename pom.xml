@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>pl.confitura</groupId>
-    <artifactId>jelatyna</artifactId>
+    <groupId>eu.margiel</groupId>
+    <artifactId>boot-webpack</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Jelatyna</name>
-    <description>REST API for Jelatyna</description>
+    <name>boot-webpack</name>
+    <description>Spring BOOT app with webpack as resources preprocessor</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -20,6 +20,7 @@
     </parent>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -61,7 +62,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>pl.confitura.jelatyna.Application</start-class>
+        <start-class>eu.margiel.bootwebpack.Application</start-class>
         <java.version>1.8</java.version>
         <lambda-behave.version>0.3</lambda-behave.version>
         <assertj.version>1.7.0</assertj.version>
@@ -73,6 +74,68 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>com.github.eirslett</groupId>-->
+                <!--<artifactId>frontend-maven-plugin</artifactId>-->
+                <!--<version>0.0.16</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>gulp build</id>-->
+                        <!--<goals>-->
+                            <!--<goal>gulp</goal>-->
+                        <!--</goals>-->
+
+                        <!--&lt;!&ndash; optional: the default phase is "generate-resources" &ndash;&gt;-->
+                        <!--<phase>generate-resources</phase>-->
+
+                        <!--<configuration>-->
+                            <!--<arguments>webpack</arguments>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <executions>
+                    <execution>
+                        <id>gulp-webpack</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>gulp</executable>
+                    <arguments>
+                        <argument>webpack</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <executions>
+                    <execution>
+                        <id>gulp-karma</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>gulp</executable>
+                    <arguments>
+                        <argument>test</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
